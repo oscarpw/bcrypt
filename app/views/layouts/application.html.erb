@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PrimerRegistro</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <%= alert %>
+      <%= notice %>
+      <% if logged? %>
+       <h5>OnLine User: <%= current_user.email %></h5>
+       <%= link_to "Salir", session_path(current_user), method: :delete %>
+      <% else %>
+       <h5>Disconect User</h5>
+      <% end %>
+    <%= yield %>
+  </body>
+</html>
